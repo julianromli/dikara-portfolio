@@ -9,7 +9,7 @@ type NavItemProps = {
 export function NavItem({ title, items, align = 'left' }: NavItemProps) {
   if (!items) {
     return (
-      <span className="cursor-pointer hover:text-black/60 transition-colors flex items-center h-full">{title}</span>
+      <span className="cursor-pointer hover:text-muted transition-colors flex items-center h-full">{title}</span>
     );
   }
 
@@ -18,19 +18,19 @@ export function NavItem({ title, items, align = 'left' }: NavItemProps) {
 
   return (
     <div className="relative group cursor-pointer h-full flex items-center">
-      <span className="flex items-center gap-1 hover:text-black/60 transition-colors">
+      <span className="flex items-center gap-1 hover:text-muted transition-colors">
         {title}{' '}
         <ChevronDown className="w-3 h-3 transition-transform duration-300 group-hover:rotate-180" />
       </span>
       <div
         className={`absolute top-full ${alignClass} opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300 z-50`}
       >
-        <div className="bg-white border border-black/10 shadow-xl min-w-[200px] py-2 flex flex-col">
+        <div className="bg-surface border border-border shadow-xl min-w-[200px] py-2 flex flex-col">
           {items.map((item, idx) => (
             <a
               key={idx}
               href="#"
-              className="px-4 py-3 hover:bg-[#f4f4f0] transition-colors text-black/70 hover:text-black whitespace-nowrap text-left"
+              className="px-4 py-3 hover:bg-canvas transition-colors text-subdued hover:text-ink whitespace-nowrap text-left"
             >
               {item}
             </a>

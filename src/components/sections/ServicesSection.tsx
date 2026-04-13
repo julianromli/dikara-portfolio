@@ -31,26 +31,26 @@ export function ServicesSection() {
   };
 
   return (
-    <section className="border-t border-black/5">
+    <section className="border-t border-line">
       <div className="grid grid-cols-1 sm:grid-cols-4">
-        <Reveal className="p-6 md:p-12 flex flex-col justify-between border-b sm:border-b-0 sm:border-r border-black/5">
+        <Reveal className="p-6 md:p-12 flex flex-col justify-between border-b sm:border-b-0 sm:border-r border-line">
           <div>
             <h2 className="text-3xl md:text-5xl font-medium leading-[1.1] tracking-tight mb-8">
               Translate your vision into timeless imagery
             </h2>
-            <p className="text-sm text-black/60 leading-relaxed mb-12">
+            <p className="text-sm text-muted leading-relaxed mb-12">
               Our mission is to translate your vision into timeless imagery. We offer a range of professional photography
               services, each tailored to tell your unique story.
             </p>
           </div>
           <div>
-            <PrimaryCTA className="flex items-center gap-2 text-xs font-medium uppercase tracking-widest border border-black/20 px-6 py-3 hover:bg-black hover:text-white transition-colors duration-300 w-fit">
+            <PrimaryCTA className="flex items-center gap-2 text-xs font-medium uppercase tracking-widest border border-border-strong px-6 py-3 hover:bg-black hover:text-white transition-colors duration-300 w-fit">
               Book Session <ArrowRight className="w-4 h-4" />
             </PrimaryCTA>
           </div>
         </Reveal>
 
-        <Reveal className="col-span-1 sm:col-span-2 border-b sm:border-b-0 sm:border-r border-black/5 p-6" delay={0.08}>
+        <Reveal className="col-span-1 sm:col-span-2 border-b sm:border-b-0 sm:border-r border-line p-6" delay={0.08}>
           <img
             src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop"
             className="w-full h-full object-cover aspect-square sm:aspect-[3/4]"
@@ -73,12 +73,12 @@ export function ServicesSection() {
             {serviceOfferings.map((svc) => (
               <motion.div key={svc.title} variants={svcItem} className="flex flex-col gap-3">
                 <h4 className="text-xl font-medium">{svc.title}</h4>
-                <p className="text-sm text-black/60 leading-relaxed">{svc.desc}</p>
+                <p className="text-sm text-muted leading-relaxed">{svc.desc}</p>
                 <div className="flex flex-wrap gap-2 mt-2">
                   {svc.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-[10px] uppercase tracking-wider px-3 py-1 border border-black/10 rounded-full text-black/70"
+                      className="text-[10px] uppercase tracking-wider px-3 py-1 border border-border rounded-full text-subdued"
                     >
                       {tag}
                     </span>

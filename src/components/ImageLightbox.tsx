@@ -15,12 +15,12 @@ export function ImageLightbox({ selectedImage, onClose }: ImageLightboxProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-4 sm:p-8 backdrop-blur-sm"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-overlay p-4 sm:p-8 backdrop-blur-sm"
           onClick={onClose}
         >
           <button
             type="button"
-            className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors z-10"
+            className="absolute top-6 right-6 text-on-overlay-muted hover:text-on-footer transition-colors z-10"
             onClick={onClose}
           >
             <X className="w-8 h-8" />
@@ -39,9 +39,9 @@ export function ImageLightbox({ selectedImage, onClose }: ImageLightboxProps) {
               alt={selectedImage.title}
               className="max-w-full max-h-[75vh] object-contain shadow-2xl"
             />
-            <div className="mt-8 text-center text-white max-w-2xl">
+            <div className="mt-8 text-center text-on-footer max-w-2xl">
               <h3 className="text-2xl sm:text-3xl font-medium tracking-wider uppercase mb-3">{selectedImage.title}</h3>
-              <p className="text-sm text-white/70 leading-relaxed">{selectedImage.desc || selectedImage.cat}</p>
+              <p className="text-sm text-on-overlay-muted leading-relaxed">{selectedImage.desc || selectedImage.cat}</p>
             </div>
           </motion.div>
         </motion.div>

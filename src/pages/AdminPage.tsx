@@ -68,31 +68,31 @@ export default function AdminPage() {
   const busy = createMutation.isPending || updateMutation.isPending;
 
   return (
-    <div className="min-h-screen bg-[#f4f4f0] text-[#1a1a1a] p-6 md:p-10 font-sans">
+    <div className="min-h-screen bg-canvas text-ink p-6 md:p-10 font-sans">
       <div className="max-w-4xl mx-auto">
-        <header className="flex flex-wrap justify-between items-center gap-4 mb-10 border-b border-black/10 pb-6">
+        <header className="flex flex-wrap justify-between items-center gap-4 mb-10 border-b border-border pb-6">
           <h1 className="text-xl font-medium tracking-tight">Kelola proyek Studio</h1>
-          <Link to="/" className="text-sm border-b border-black/30 hover:text-black/60 pb-0.5">
+          <Link to="/" className="text-sm border-b border-border-nav hover:text-muted pb-0.5">
             Kembali ke situs
           </Link>
         </header>
 
-        <p className="text-xs text-black/50 mb-6">
+        <p className="text-xs text-muted-2 mb-6">
           Unggah gambar lewat UploadThing atau tempel URL gambar. Tanpa auth — jangan dipublikasikan ke produksi tanpa proteksi.
         </p>
 
         <form
           onSubmit={handleSubmit}
-          className="space-y-4 mb-12 p-6 bg-white border border-black/5 rounded-sm shadow-sm"
+          className="space-y-4 mb-12 p-6 bg-surface border border-line rounded-sm shadow-sm"
         >
-          <h2 className="text-xs font-medium uppercase tracking-widest text-black/40">
+          <h2 className="text-xs font-medium uppercase tracking-widest text-faint">
             {editingId != null ? 'Edit proyek' : 'Proyek baru'}
           </h2>
 
           <div>
-            <label className="block text-xs font-medium uppercase tracking-wider text-black/50 mb-1">Judul</label>
+            <label className="block text-xs font-medium uppercase tracking-wider text-muted-2 mb-1">Judul</label>
             <input
-              className="w-full border border-black/10 px-3 py-2 text-sm bg-[#fafaf8]"
+              className="w-full border border-border px-3 py-2 text-sm bg-surface-panel"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               required
@@ -100,9 +100,9 @@ export default function AdminPage() {
           </div>
 
           <div>
-            <label className="block text-xs font-medium uppercase tracking-wider text-black/50 mb-1">Deskripsi</label>
+            <label className="block text-xs font-medium uppercase tracking-wider text-muted-2 mb-1">Deskripsi</label>
             <textarea
-              className="w-full border border-black/10 px-3 py-2 text-sm bg-[#fafaf8] min-h-[88px]"
+              className="w-full border border-border px-3 py-2 text-sm bg-surface-panel min-h-[88px]"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               rows={3}
@@ -110,11 +110,11 @@ export default function AdminPage() {
           </div>
 
           <div>
-            <label className="block text-xs font-medium uppercase tracking-wider text-black/50 mb-1">
+            <label className="block text-xs font-medium uppercase tracking-wider text-muted-2 mb-1">
               URL gambar
             </label>
             <input
-              className="w-full border border-black/10 px-3 py-2 text-sm bg-[#fafaf8] mb-2"
+              className="w-full border border-border px-3 py-2 text-sm bg-surface-panel mb-2"
               value={imageUrl}
               onChange={(e) => setImageUrl(e.target.value)}
               placeholder="https://…"
@@ -136,17 +136,17 @@ export default function AdminPage() {
                 <img
                   src={imageUrl}
                   alt="Preview"
-                  className="h-14 w-14 object-cover border border-black/10 rounded-sm"
+                  className="h-14 w-14 object-cover border border-border rounded-sm"
                 />
               ) : null}
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-medium uppercase tracking-wider text-black/50 mb-1">Urutan</label>
+            <label className="block text-xs font-medium uppercase tracking-wider text-muted-2 mb-1">Urutan</label>
             <input
               type="number"
-              className="w-32 border border-black/10 px-3 py-2 text-sm bg-[#fafaf8]"
+              className="w-32 border border-border px-3 py-2 text-sm bg-surface-panel"
               value={sortOrder}
               onChange={(e) => setSortOrder(Number(e.target.value))}
             />
@@ -164,7 +164,7 @@ export default function AdminPage() {
               <button
                 type="button"
                 onClick={resetForm}
-                className="text-xs font-medium uppercase tracking-widest px-4 py-2 border border-black/20 hover:bg-black/5"
+                className="text-xs font-medium uppercase tracking-widest px-4 py-2 border border-border-strong hover:bg-ink/5"
               >
                 Batal edit
               </button>
@@ -173,30 +173,30 @@ export default function AdminPage() {
         </form>
 
         <section>
-          <h2 className="text-xs font-medium uppercase tracking-widest text-black/40 mb-4">Daftar proyek</h2>
+          <h2 className="text-xs font-medium uppercase tracking-widest text-faint mb-4">Daftar proyek</h2>
           {isLoading ? (
-            <p className="text-sm text-black/50">Memuat…</p>
+            <p className="text-sm text-muted-2">Memuat…</p>
           ) : !projects?.length ? (
-            <p className="text-sm text-black/50">Belum ada data.</p>
+            <p className="text-sm text-muted-2">Belum ada data.</p>
           ) : (
-            <ul className="divide-y divide-black/10 border border-black/10 rounded-sm bg-white">
+            <ul className="divide-y divide-border border border-border rounded-sm bg-surface">
               {projects.map((p) => (
                 <li key={p.id} className="p-4 flex flex-col sm:flex-row sm:items-center gap-4">
                   <img
                     src={p.imageUrl}
                     alt=""
-                    className="w-full sm:w-20 h-20 object-cover border border-black/5 shrink-0"
+                    className="w-full sm:w-20 h-20 object-cover border border-line shrink-0"
                   />
                   <div className="flex-1 min-w-0">
                     <p className="font-medium truncate">{p.title}</p>
-                    <p className="text-xs text-black/50 line-clamp-2">{p.description || '—'}</p>
-                    <p className="text-[10px] text-black/35 mt-1">sort: {p.sortOrder} · id: {p.id}</p>
+                    <p className="text-xs text-muted-2 line-clamp-2">{p.description || '—'}</p>
+                    <p className="text-[10px] text-meta mt-1">sort: {p.sortOrder} · id: {p.id}</p>
                   </div>
                   <div className="flex gap-2 shrink-0">
                     <button
                       type="button"
                       onClick={() => startEdit(p)}
-                      className="text-xs font-medium uppercase tracking-wider px-3 py-1.5 border border-black/15 hover:bg-black/5"
+                      className="text-xs font-medium uppercase tracking-wider px-3 py-1.5 border border-border-chip hover:bg-ink/5"
                     >
                       Edit
                     </button>

@@ -29,7 +29,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-[#111] text-white pt-24 pb-12 relative z-10">
+    <footer className="bg-footer text-on-footer pt-24 pb-12 relative z-10">
       <GridLines variant="dark" />
 
       <div className="relative z-10 w-full max-w-[1400px] mx-auto">
@@ -57,32 +57,32 @@ export function Footer() {
           </motion.div>
         </motion.div>
 
-        <div className="border-t border-white/20 grid grid-cols-1 md:grid-cols-4">
-          <div className="p-6 flex flex-col justify-between min-h-[250px] border-b md:border-b-0 md:border-r border-white/10">
-            <p className="text-sm text-white/60 leading-relaxed mb-8 max-w-xs">
+        <div className="border-t border-footer-line-strong grid grid-cols-1 md:grid-cols-4">
+          <div className="p-6 flex flex-col justify-between min-h-[250px] border-b md:border-b-0 md:border-r border-footer-line">
+            <p className="text-sm text-on-footer-muted leading-relaxed mb-8 max-w-xs">
               Storytelling through cinematic photography for weddings, portraits, and brands.
             </p>
             <div className="flex gap-4">
-              <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-colors cursor-pointer [&>svg]:size-4">
+              <div className="w-10 h-10 rounded-full border border-footer-icon-border flex items-center justify-center hover:bg-on-footer hover:text-ink transition-colors cursor-pointer [&>svg]:size-4">
                 <FaFacebook />
               </div>
-              <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-colors cursor-pointer [&>svg]:size-4">
+              <div className="w-10 h-10 rounded-full border border-footer-icon-border flex items-center justify-center hover:bg-on-footer hover:text-ink transition-colors cursor-pointer [&>svg]:size-4">
                 <FaXTwitter />
               </div>
-              <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-colors cursor-pointer [&>svg]:size-4">
+              <div className="w-10 h-10 rounded-full border border-footer-icon-border flex items-center justify-center hover:bg-on-footer hover:text-ink transition-colors cursor-pointer [&>svg]:size-4">
                 <FaInstagram />
               </div>
-              <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-colors cursor-pointer [&>svg]:size-4">
+              <div className="w-10 h-10 rounded-full border border-footer-icon-border flex items-center justify-center hover:bg-on-footer hover:text-ink transition-colors cursor-pointer [&>svg]:size-4">
                 <FaLinkedin />
               </div>
             </div>
           </div>
 
-          <div className="col-span-1 md:col-span-2 p-6 border-b md:border-b-0 md:border-r border-white/10">
+          <div className="col-span-1 md:col-span-2 p-6 border-b md:border-b-0 md:border-r border-footer-line">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
               <div className="flex flex-col gap-12">
                 <div>
-                  <h4 className="text-[10px] font-medium uppercase tracking-widest text-white/40 mb-4">Address</h4>
+                  <h4 className="text-[10px] font-medium uppercase tracking-widest text-on-footer-label mb-4">Address</h4>
                   <p className="text-sm leading-relaxed">
                     2457 Maplewood Ave,
                     <br />
@@ -90,11 +90,11 @@ export function Footer() {
                   </p>
                 </div>
                 <div>
-                  <h4 className="text-[10px] font-medium uppercase tracking-widest text-white/40 mb-4">Phone</h4>
+                  <h4 className="text-[10px] font-medium uppercase tracking-widest text-on-footer-label mb-4">Phone</h4>
                   <p className="text-sm">(555) 123-4567</p>
                 </div>
                 <div>
-                  <h4 className="text-[10px] font-medium uppercase tracking-widest text-white/40 mb-4">Email</h4>
+                  <h4 className="text-[10px] font-medium uppercase tracking-widest text-on-footer-label mb-4">Email</h4>
                   <p className="text-sm">hello@dikara.studio</p>
                 </div>
               </div>

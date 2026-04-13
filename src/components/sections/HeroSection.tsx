@@ -57,14 +57,14 @@ export function HeroSection() {
       </motion.h1>
 
       <motion.div
-        className="grid grid-cols-1 sm:grid-cols-4 border-t border-black/5"
+        className="grid grid-cols-1 sm:grid-cols-4 border-t border-line"
         variants={introRow}
         initial="hidden"
         animate="visible"
       >
         <motion.div
           variants={introCell}
-          className="p-6 text-sm leading-relaxed border-b sm:border-b-0 sm:border-r border-black/5"
+          className="p-6 text-sm leading-relaxed border-b sm:border-b-0 sm:border-r border-line"
         >
           Capturing Life&apos;s Most
           <br />
@@ -72,20 +72,20 @@ export function HeroSection() {
         </motion.div>
         <motion.div
           variants={introCell}
-          className="p-6 text-sm leading-relaxed border-b sm:border-b-0 sm:border-r border-black/5"
+          className="p-6 text-sm leading-relaxed border-b sm:border-b-0 sm:border-r border-line"
         >
           <span className="font-medium">#photography_studio</span>
           <br />
-          <span className="text-black/60">
+          <span className="text-muted">
             Storytelling through cinematic photography for weddings, portraits, and brands.
           </span>
         </motion.div>
-        <motion.div variants={introCell} className="max-sm:hidden sm:block p-6 border-r border-black/5" />
+        <motion.div variants={introCell} className="max-sm:hidden sm:block p-6 border-r border-line" />
         <motion.div
           variants={introCell}
           className="p-6 flex justify-start sm:justify-end items-start"
         >
-          <PrimaryCTA className="flex items-center gap-2 text-xs font-medium uppercase tracking-widest border border-black/20 px-6 py-3 hover:bg-black hover:text-white transition-colors duration-300">
+          <PrimaryCTA className="flex items-center gap-2 text-xs font-medium uppercase tracking-widest border border-border-strong px-6 py-3 hover:bg-black hover:text-white transition-colors duration-300">
             Book Session <ArrowRight className="w-4 h-4" />
           </PrimaryCTA>
         </motion.div>
@@ -108,7 +108,7 @@ export function HeroSection() {
               className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
               alt={p.alt}
             />
-            <div className="absolute inset-0 flex items-end p-6 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 motion-reduce:transition-none">
+            <div className="absolute inset-0 flex items-end p-6 bg-gradient-to-t from-ink/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 motion-reduce:transition-none">
               <h2 className="text-4xl font-bold text-white">{p.overlayTitle}</h2>
             </div>
           </motion.div>

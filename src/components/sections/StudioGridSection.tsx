@@ -49,19 +49,19 @@ export function StudioGridSection({ onSelectImage }: StudioGridSectionProps) {
   };
 
   return (
-    <section className="border-t border-black/5">
-      <div className="flex justify-between items-center p-6 border-b border-black/5">
+    <section className="border-t border-line">
+      <div className="flex justify-between items-center p-6 border-b border-line">
         <h3 className="text-sm font-medium">Studio</h3>
         <a
           href="#"
-          className="text-xs font-medium uppercase tracking-widest border-b border-black pb-1 hover:text-black/50 transition-colors"
+          className="text-xs font-medium uppercase tracking-widest border-b border-ink pb-1 hover:text-muted-2 transition-colors"
         >
           See All Works (32)
         </a>
       </div>
 
       {isLoading && (
-        <p className="px-6 py-4 text-xs text-black/50">Memuat proyek dari server…</p>
+        <p className="px-6 py-4 text-xs text-muted-2">Memuat proyek dari server…</p>
       )}
       {isError && (
         <div className="px-6 py-4 flex flex-col gap-2 text-xs text-red-700">
@@ -95,7 +95,7 @@ export function StudioGridSection({ onSelectImage }: StudioGridSectionProps) {
             </div>
             <div>
               <h4 className="text-sm font-medium uppercase tracking-wider mb-1">{item.title}</h4>
-              <p className="text-xs text-black/50">{item.desc || item.cat}</p>
+              <p className="text-xs text-muted-2">{item.desc || item.cat}</p>
             </div>
           </motion.div>
         ))}

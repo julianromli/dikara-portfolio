@@ -29,9 +29,9 @@ export function OurStorySection() {
   };
 
   return (
-    <section className="border-t border-black/5">
+    <section className="border-t border-line">
       <div className="grid grid-cols-1 sm:grid-cols-4">
-        <Reveal className="p-6 border-b sm:border-b-0 sm:border-r border-black/5">
+        <Reveal className="p-6 border-b sm:border-b-0 sm:border-r border-line">
           <h3 className="text-xs font-medium uppercase tracking-widest">Our Story</h3>
         </Reveal>
         <Reveal className="col-span-1 sm:col-span-3 p-6 md:p-16 lg:p-24" delay={0.06}>
@@ -40,10 +40,10 @@ export function OurStorySection() {
           </h2>
         </Reveal>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-4 border-t border-black/5">
-        <div className="max-sm:hidden sm:block p-6 border-r border-black/5" />
-        <Reveal className="p-6 border-b sm:border-b-0 sm:border-r border-black/5 flex flex-col gap-8">
-          <p className="text-sm text-black/70 leading-relaxed">
+      <div className="grid grid-cols-1 sm:grid-cols-4 border-t border-line">
+        <div className="max-sm:hidden sm:block p-6 border-r border-line" />
+        <Reveal className="p-6 border-b sm:border-b-0 sm:border-r border-line flex flex-col gap-8">
+          <p className="text-sm text-subdued leading-relaxed">
             Our team of passionate photographers ensures every shot tells your story.
           </p>
           <img
@@ -63,13 +63,13 @@ export function OurStorySection() {
             <motion.div
               key={item.num}
               variants={pillarItem}
-              className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8 border-b border-black/5 py-6 first:pt-0 last:border-0 last:pb-0"
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8 border-b border-line py-6 first:pt-0 last:border-0 last:pb-0"
             >
               <div className="flex gap-6 font-medium">
-                <span className="text-black/40">{item.num}</span>
+                <span className="text-faint">{item.num}</span>
                 <span>{item.title}</span>
               </div>
-              <div className="text-sm text-black/60 leading-relaxed">{item.desc}</div>
+              <div className="text-sm text-muted leading-relaxed">{item.desc}</div>
             </motion.div>
           ))}
         </motion.div>

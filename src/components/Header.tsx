@@ -8,14 +8,14 @@ export function Header() {
 
   return (
     <motion.header
-      className="grid grid-cols-4 border-b border-black/5 h-20 text-[10px] sm:text-xs font-medium uppercase tracking-widest"
+      className="grid grid-cols-4 border-b border-line h-20 text-[10px] sm:text-xs font-medium uppercase tracking-widest"
       initial={reduce ? false : { opacity: 0, y: -12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: reduce ? 0 : 0.42, ease: EASE_OUT_QUART }}
     >
       <div className="px-4 sm:px-6 flex items-center gap-3 h-full">
-        <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full border-2 border-black flex items-center justify-center">
-          <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-black rounded-full" />
+        <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full border-2 border-ink flex items-center justify-center">
+          <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-ink rounded-full" />
         </div>
         <span className="text-base sm:text-lg font-semibold lowercase tracking-normal">dikara</span>
       </div>

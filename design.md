@@ -1,6 +1,6 @@
 # Design system — dikara
 
-Dokumen ini menjelaskan **arah visual dan pola UI** yang dipakai di portfolio dikara, selaras dengan implementasi di [`src/index.css`](src/index.css) dan [`src/App.tsx`](src/App.tsx). Gunakan sebagai acuan konsistensi saat menambah section atau komponen baru.
+Dokumen ini menjelaskan **arah visual dan pola UI** yang dipakai di portfolio dikara, selaras dengan implementasi di [`src/index.css`](src/index.css) dan halaman utama [`src/pages/HomePage.tsx`](src/pages/HomePage.tsx). Gunakan sebagai acuan konsistensi saat menambah section atau komponen baru.
 
 ## Brand & arah visual
 
@@ -10,36 +10,52 @@ Dokumen ini menjelaskan **arah visual dan pola UI** yang dipakai di portfolio di
 
 ## Warna
 
-| Token / peran | Nilai | Catatan |
-|---------------|-------|---------|
-| Canvas (page) | `#f4f4f0` | Background utama; juga `bg-[#f4f4f0]` di root layout. |
-| Teks utama | `#1a1a1a` | Default body di `index.css` dan `text-[#1a1a1a]` di app shell. |
-| Teks sekunder | `black/60`, `black/70`, `black/80` | Deskripsi, subjudul, quote body. |
-| Teks tersier / label | `black/40`, `black/50` | Nomor list, meta, kategori. |
-| Garis & grid | `black/5` | Border section, `divide-x`, garis grid vertikal. |
-| Border kontrol | `black/10`, `black/20` | Dropdown, tombol outline, chip/tag. |
-| Surface putih | `white` | Panel dropdown, kartu hover row. |
-| Footer gelap | `bg-[#111]` | Footer penuh lebar. |
-| Teks di footer | `white`, `white/40`–`white/70` | Hierarki: label redup, link hover `/70`, body `/60`. |
-| Pemisah footer | `white/10`, `white/20` | Grid garis & border horizontal. |
-| Aksen spot (blok featured) | `#5eead4` | Background blok hero “See Our Work” (teal). |
-| Placeholder kartu | `bg-gray-100` | Latar kotak gambar di grid Studio sebelum gambar dimuat penuh. |
-| Overlay / modal | `black/95`, `black/40` | Lightbox; gradient gambar `from-black/40`. |
-| Selection | `bg-black` + teks putih | `selection:bg-black selection:text-white` |
+Token didefinisikan di `@theme` pada [`src/index.css`](src/index.css). Utility Tailwind v4 mengikuti nama setelah `--color-*` (mis. `--color-canvas` → `bg-canvas`, `text-canvas`).
 
-Tidak ada palet “brand” terpisah di `@theme`; kebanyakan warna di-inline lewat utility Tailwind. Untuk konsistensi jangka panjang, pertimbangkan memindahkan hex yang sering dipakai ke variabel di `@theme` di [`src/index.css`](src/index.css).
+| Peran | Nilai | Utility (token) |
+|-------|-------|-----------------|
+| Canvas (page) | `#f4f4f0` | `bg-canvas` |
+| Teks utama | `#1a1a1a` | `text-ink` (juga default `body`) |
+| Teks sekunder ~60% | rgba setara `black/60` | `text-muted` |
+| Teks ~70% | setara `black/70` | `text-subdued` |
+| Teks ~80% | setara `black/80` | `text-emphasis` |
+| Teks ~50% | setara `black/50` | `text-muted-2` |
+| Teks ~40% | setara `black/40` | `text-faint` |
+| Meta / sangat redup ~35% | setara `black/35` | `text-meta` |
+| Garis & grid halus | ~5% hitam | `border-line`, `divide-line` |
+| Border kontrol | ~10% / ~20% | `border-border`, `border-border-strong` |
+| Border chip / sedang | ~15% | `border-border-chip` |
+| Border nav / tegas | ~30% | `border-border-nav` |
+| Surface putih | `#ffffff` | `bg-surface` |
+| Surface panel (form) | `#fafaf8` | `bg-surface-panel` |
+| Footer gelap | `#111111` | `bg-footer` |
+| Teks di footer (putih penuh) | `#ffffff` | `text-on-footer` |
+| Teks footer redup | setara `white/60` | `text-on-footer-muted` |
+| Label footer | setara `white/40` | `text-on-footer-label` |
+| Garis footer | setara `white/10` | `border-footer-line` |
+| Garis footer kuat / pemisah | setara `white/20` | `border-footer-line-strong` |
+| Ikon sosial (border) | setara `white/20` | `border-footer-icon-border` |
+| Aksen spot (featured strip) | `#5eead4` | `bg-spot` |
+| Overlay lightbox | ~95% hitam | `bg-overlay` |
+| Teks di atas overlay (muted) | setara `white/70` | `text-on-overlay-muted` |
+| Placeholder kartu | `gray-100` (default Tailwind) | `bg-gray-100` di grid Studio |
+| Gradient overlay kartu | ~40% hitam | `from-ink/40` |
+| Selection | hitam + putih | `selection:bg-black selection:text-white` |
+
+Tombol primer hitam solid (mis. submit admin) tetap memakai `bg-black text-white` di mana kontras penuh dibutuhkan.
 
 ## Tipografi
 
 - **Font**: Inter (Google Fonts), di-register sebagai `--font-sans` di `@theme`; stack fallback: `ui-sans-serif, system-ui, sans-serif`.
 - **Smoothing**: `-webkit-font-smoothing: antialiased` pada `body`.
+- **Letter-spacing**: tidak diatur global untuk body; default browser/Tailwind. Utility `tracking-*` dipakai pada label caps dan judul tertentu.
 
 Pola ukuran yang dipakai di halaman:
 
 | Peran | Pola umum |
 |-------|-----------|
 | Hero nama studio | `text-[14vw]`, `leading-[0.85]`, `font-medium`, `tracking-tighter` |
-| Teks besar di strip featured | `text-[15vw] sm:text-[12vw]`, `font-black italic`, `text-white`, `-rotate-3` |
+| Teks besar di strip featured | `text-[15vw] sm:text-[12vw]`, `font-black italic`, `text-on-footer`, `-rotate-3` |
 | Judul section besar | `text-3xl` → `text-6xl` (breakpoint), `font-medium`, `leading-[1.1]`, `tracking-tight` |
 | Judul section medium | `text-4xl` / `text-5xl`, `font-medium` |
 | Overlay / CTA besar footer | `text-5xl` → `text-8xl`, `font-bold`, `uppercase`, `tracking-tighter` |
@@ -53,22 +69,22 @@ Logo teks **dikara** memakai `lowercase`, `font-semibold`, tracking normal (beda
 
 - **Lebar konten**: `max-w-[1400px]`, `mx-auto`, relatif untuk overlay grid.
 - **Motif 4 kolom**: `grid-cols-4` untuk header, section label/konten, dan garis vertikal dekoratif.
-- **Garis vertikal**: wrapper `divide-x divide-black/5` + `border-x border-black/5` (lihat `GridLines`); footer memakai analog putih: `divide-white/10`, `border-white/10`.
+- **Garis vertikal**: [`GridLines`](src/components/GridLines.tsx) memakai `divide-x divide-line` + `border-x border-line`; varian gelap memakai `divide-footer-line` + `border-footer-line`.
 - **Breakpoint** yang paling sering: `sm` (nav & grid), `md` / `lg` (padding heading & kolom footer).
 
 ## Komponen & pola UI
 
-Implementasi saat ini berada di [`src/App.tsx`](src/App.tsx) (bukan package komponen terpisah).
+Implementasi utama di [`src/pages/HomePage.tsx`](src/pages/HomePage.tsx) dan komponen di `src/components/`.
 
-- **Header**: tinggi `h-20`, border bawah `border-black/5`, navigasi `uppercase` + tracking lebar; logo lingkaran + titik (`border-2 border-black`).
-- **NavItem + dropdown**: trigger hover (`group`), panel `bg-white border border-black/10 shadow-xl min-w-[200px]`, item `hover:bg-[#f4f4f0]`, transisi `duration-300`; link tanpa dropdown `hover:text-black/60`.
-- **Link teks** (mis. “See All Works”): `border-b border-black`, `hover:text-black/50`.
-- **Tombol primer** (“Book Session”): `border border-black/20`, padding `px-6 py-3`, `text-xs font-medium uppercase tracking-widest`, hover `bg-black text-white`, transisi `duration-300`.
-- **Chip / tag**: `text-[10px] uppercase tracking-wider`, `px-3 py-1`, `rounded-full`, `border border-black/10`, `text-black/70`.
-- **Kartu gambar**: rasio `aspect-[3/4]`, `aspect-square`, atau `aspect-[16/9]` / `aspect-[21/9]`; `object-cover`; hover `scale-105` dengan `duration-700`; overlay gradient `bg-gradient-to-t from-black/40`.
-- **Featured strip**: teks besar putih `font-black italic`, `drop-shadow`, rotasi ringan `-rotate-3`.
-- **Footer**: background `#111`, grid 4 kolom + garis; ikon sosial lingkaran `border-white/20`, hover invert ke putih.
-- **Modal gambar**: overlay `fixed inset-0 z-[100]`, backdrop `bg-black/95 backdrop-blur-sm`; kartu konten spring (`motion`); tombol tutup `text-white/70` hover putih; judul putih, kategori `text-white/60` + `uppercase tracking-widest`.
+- **Header**: tinggi `h-20`, border bawah `border-line`, navigasi `uppercase` + tracking lebar; logo lingkaran + titik (`border-2 border-ink`).
+- **NavItem + dropdown**: trigger hover (`group`), panel `bg-surface border border-border shadow-xl min-w-[200px]`, item `hover:bg-canvas`, transisi `duration-300`; link tanpa dropdown `hover:text-muted`.
+- **Link teks** (mis. “See All Works”): `border-b border-ink`, `hover:text-muted-2`.
+- **Tombol primer** (“Book Session”): `border border-border-strong`, padding `px-6 py-3`, `text-xs font-medium uppercase tracking-widest`, hover `bg-black text-white`, transisi `duration-300`.
+- **Chip / tag**: `text-[10px] uppercase tracking-wider`, `px-3 py-1`, `rounded-full`, `border border-border`, `text-subdued`.
+- **Kartu gambar**: rasio `aspect-[3/4]`, `aspect-square`, atau `aspect-[16/9]` / `aspect-[21/9]`; `object-cover`; hover `scale-105` dengan `duration-700`; overlay gradient `bg-gradient-to-t from-ink/40`.
+- **Featured strip**: teks besar `text-on-footer` di atas `bg-spot`, `font-black italic`, `drop-shadow`, rotasi ringan `-rotate-3`.
+- **Footer**: `bg-footer` + teks `text-on-footer` / `text-on-footer-muted` / `text-on-footer-label`; grid 4 kolom + garis `border-footer-line` / `border-footer-line-strong`; ikon sosial `border-footer-icon-border`, hover `bg-on-footer text-ink`.
+- **Modal gambar**: overlay `bg-overlay backdrop-blur-sm`; tombol tutup `text-on-overlay-muted` hover `text-on-footer`; judul `text-on-footer`, deskripsi `text-on-overlay-muted`.
 
 ## Motion
 
@@ -81,15 +97,12 @@ Implementasi saat ini berada di [`src/App.tsx`](src/App.tsx) (bukan package komp
 - **Library**: `lucide-react` (mis. `ArrowRight`, `Menu`, `ChevronDown`, `X`, ikon sosial).
 - **Ukuran umum**: `w-4 h-4` di tombol; `w-5 h-5` di header / menu; tutup modal `w-8 h-8`.
 
-## Ekstensi ke `@theme` (opsional)
-
-Jika warna atau radius yang sama diulang banyak kali, tambahkan token di blok `@theme` di [`src/index.css`](src/index.css) (mis. `--color-canvas`, `--color-ink`) lalu pakai di class Tailwind v4. Ini opsional dan tidak wajib untuk perilaku situs saat ini.
-
 ## Referensi file
 
 | File | Isi relevan |
 |------|----------------|
-| [`src/index.css`](src/index.css) | Font Inter, `@theme --font-sans`, warna `body` |
-| [`src/App.tsx`](src/App.tsx) | Seluruh pola layout, komponen inline, utility |
+| [`src/index.css`](src/index.css) | `@theme` warna semantic, `--font-sans`, `body` |
+| [`src/pages/HomePage.tsx`](src/pages/HomePage.tsx) | Shell layout landing |
+| [`src/components/`](src/components/) | Section, header, footer, lightbox |
 | [`vite.config.ts`](vite.config.ts) | Plugin `@tailwindcss/vite` |
 | [`AGENTS.md`](AGENTS.md) | Konvensi proyek & quality bar UI |

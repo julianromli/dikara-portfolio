@@ -14,7 +14,7 @@ export default function HomePage() {
   const [selectedImage, setSelectedImage] = useState<SelectedImage | null>(null);
 
   return (
-    <div className="relative w-full min-h-screen bg-[#f4f4f0] text-[#1a1a1a] font-sans selection:bg-black selection:text-white overflow-x-hidden">
+    <div className="relative w-full min-h-screen bg-canvas text-ink font-sans selection:bg-black selection:text-white overflow-x-hidden">
       <div className="relative w-full max-w-[1400px] mx-auto">
         <GridLines />
 

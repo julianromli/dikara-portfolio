@@ -3,11 +3,40 @@
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+
+  /* Light shell — semantic (selaras design.md) */
+  --color-canvas: #f4f4f0;
+  --color-ink: #1a1a1a;
+  --color-muted: rgb(26 26 26 / 0.6);
+  --color-muted-2: rgb(26 26 26 / 0.5);
+  --color-subdued: rgb(26 26 26 / 0.7);
+  --color-faint: rgb(26 26 26 / 0.4);
+  --color-emphasis: rgb(26 26 26 / 0.8);
+  --color-meta: rgb(26 26 26 / 0.35);
+  --color-line: rgb(26 26 26 / 0.05);
+  --color-border: rgb(26 26 26 / 0.1);
+  --color-border-strong: rgb(26 26 26 / 0.2);
+  --color-border-chip: rgb(26 26 26 / 0.15);
+  --color-border-nav: rgb(26 26 26 / 0.3);
+  --color-surface: #ffffff;
+  --color-surface-panel: #fafaf8;
+  --color-spot: #5eead4;
+  --color-overlay: rgb(0 0 0 / 0.95);
+  --color-on-overlay-muted: rgb(255 255 255 / 0.7);
+
+  /* Footer gelap */
+  --color-footer: #111111;
+  --color-on-footer: #ffffff;
+  --color-on-footer-muted: rgb(255 255 255 / 0.6);
+  --color-on-footer-label: rgb(255 255 255 / 0.4);
+  --color-footer-icon-border: rgb(255 255 255 / 0.2);
+  --color-footer-line: rgb(255 255 255 / 0.1);
+  --color-footer-line-strong: rgb(255 255 255 / 0.2);
 }
 
 body {
-  background-color: #f4f4f0;
-  color: #1a1a1a;
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
 }
 
