@@ -1,3 +1,4 @@
+import './env';
 import {Hono} from 'hono';
 import {trpcServer} from '@hono/trpc-server';
 import {createRouteHandler} from 'uploadthing/server';
