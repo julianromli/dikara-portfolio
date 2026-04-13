@@ -48,10 +48,10 @@ export function HeroSection() {
   return (
     <section className="pt-16 pb-24">
       <motion.h1
-        className="text-[14vw] leading-[0.85] font-medium tracking-tighter text-center mb-16 px-4"
-        initial={reduce ? false : { opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: reduce ? 0 : 0.68, ease: EASE_OUT_QUART, delay: reduce ? 0 : 0.04 }}
+        className="text-[14vw] leading-[0.85] font-medium tracking-tighter text-center mb-16 px-4 [text-rendering:geometricPrecision]"
+        initial={reduce ? false : { opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: reduce ? 0 : 0.58, ease: EASE_OUT_QUART, delay: reduce ? 0 : 0.04 }}
       >
         dikara studio
       </motion.h1>
