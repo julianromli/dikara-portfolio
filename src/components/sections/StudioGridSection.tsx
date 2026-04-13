@@ -94,7 +94,7 @@ export function StudioGridSection({ onSelectImage }: StudioGridSectionProps) {
               />
             </div>
             <div>
-              <h4 className="text-sm font-medium uppercase tracking-wider mb-1">{item.title}</h4>
+              <h4 className="text-sm font-medium uppercase tracking-normal mb-1">{item.title}</h4>
               <p className="text-xs text-muted-2">{item.desc || item.cat}</p>
             </div>
           </motion.div>

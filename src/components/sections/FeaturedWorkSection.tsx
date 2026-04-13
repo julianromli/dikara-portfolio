@@ -58,7 +58,7 @@ export function FeaturedWorkSection({ onSelectImage }: FeaturedWorkSectionProps)
           <h3 className="text-xs font-medium uppercase tracking-widest">Featured Project</h3>
         </Reveal>
         <Reveal className="col-span-1 sm:col-span-3 p-6 md:p-12" delay={0.06}>
-          <p className="text-xl sm:text-2xl md:text-3xl leading-relaxed text-emphasis font-medium">
+          <p className="text-xl sm:text-2xl md:text-3xl leading-relaxed text-emphasis font-medium tracking-[-1.2px]">
             Shot a figure walks with quiet confidence. The oversized sweatshirt, the cool reflection of the sunglasses,
             the effortless stance — nothing feels staged, everything feels real. This is not just a portrait,
             it&apos;s a statement.
