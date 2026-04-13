@@ -1,0 +1,71 @@
+import type {SelectedImage} from '../../types/portfolio';
+import {studioGridItems} from '../../data/portfolio';
+import {trpc} from '../../trpc/client';
+
+type StudioGridSectionProps = {
+  onSelectImage: (item: SelectedImage) => void;
+};
+
+export function StudioGridSection({onSelectImage}: StudioGridSectionProps) {
+  const {data, isLoading, isError, refetch} = trpc.project.list.useQuery();
+
+  const entries =
+    data && data.length > 0
+      ? data.map((row) => ({
+          key: `project-${row.id}`,
+          item: {
+            img: row.imageUrl,
+            title: row.title,
+            cat: row.category,
+          } satisfies SelectedImage,
+        }))
+      : studioGridItems.map((item) => ({key: item.img, item}));
+
+  return (
+    <section className="border-t border-black/5">
+      <div className="flex justify-between items-center p-6 border-b border-black/5">
+        <h3 className="text-sm font-medium">Studio</h3>
+        <a
+          href="#"
+          className="text-xs font-medium uppercase tracking-widest border-b border-black pb-1 hover:text-black/50 transition-colors"
+        >
+          See All Works (32)
+        </a>
+      </div>
+
+      {isLoading && (
+        <p className="px-6 py-4 text-xs text-black/50">Memuat proyek dari server…</p>
+      )}
+      {isError && (
+        <div className="px-6 py-4 flex flex-col gap-2 text-xs text-red-700">
+          <span>Gagal memuat data dari API (pastikan `npm run dev` menjalankan server).</span>
+          <button type="button" className="underline w-fit" onClick={() => void refetch()}>
+            Coba lagi
+          </button>
+        </div>
+      )}
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6">
+        {entries.map(({key, item}) => (
+          <div
+            key={key}
+            className="flex flex-col gap-4 group cursor-pointer"
+            onClick={() => onSelectImage(item)}
+          >
+            <div className="aspect-square overflow-hidden bg-gray-100">
+              <img
+                src={item.img}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                alt={item.title}
+              />
+            </div>
+            <div>
+              <h4 className="text-sm font-medium uppercase tracking-wider mb-1">{item.title}</h4>
+              <p className="text-xs text-black/50">{item.cat}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
