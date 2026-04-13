@@ -1,26 +1,61 @@
 import { FaFacebook, FaInstagram, FaLinkedin, FaXTwitter } from 'react-icons/fa6';
+import { motion, useInView, useReducedMotion } from 'motion/react';
+import { useRef } from 'react';
+import { EASE_OUT_QUART } from '../lib/motion-easing';
 import { GridLines } from './GridLines';
 
 export function Footer() {
+  const reduce = useReducedMotion();
+  const topRef = useRef<HTMLDivElement>(null);
+  const topInView = useInView(topRef, { once: true, margin: '0px 0px -12% 0px' });
+
+  const row = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: reduce ? 0 : 0.12,
+        delayChildren: reduce ? 0 : 0.04,
+      },
+    },
+  };
+
+  const cell = {
+    hidden: { opacity: reduce ? 1 : 0, y: reduce ? 0 : 24 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: reduce ? 0 : 0.55, ease: EASE_OUT_QUART },
+    },
+  };
+
   return (
     <footer className="bg-[#111] text-white pt-24 pb-12 relative z-10">
       <GridLines variant="dark" />
 
       <div className="relative z-10 w-full max-w-[1400px] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 mb-24 px-6 gap-12 md:gap-0">
-          <div className="col-span-1 md:col-span-2">
+        <motion.div
+          ref={topRef}
+          className="grid grid-cols-1 md:grid-cols-4 mb-24 px-6 gap-12 md:gap-0"
+          variants={row}
+          initial="hidden"
+          animate={reduce || topInView ? 'visible' : 'hidden'}
+        >
+          <motion.div variants={cell} className="col-span-1 md:col-span-2">
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight leading-[1.1]">
               Be photogenic
               <br />
               on any camera
             </h2>
-          </div>
-          <div className="col-span-1 md:col-span-2 flex items-end justify-start md:justify-end">
+          </motion.div>
+          <motion.div
+            variants={cell}
+            className="col-span-1 md:col-span-2 flex items-end justify-start md:justify-end"
+          >
             <h2 className="text-5xl sm:text-6xl md:text-8xl font-bold tracking-tighter uppercase leading-none">
               Book Session
             </h2>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         <div className="border-t border-white/20 grid grid-cols-1 md:grid-cols-4">
           <div className="p-6 flex flex-col justify-between min-h-[250px] border-b md:border-b-0 md:border-r border-white/10">

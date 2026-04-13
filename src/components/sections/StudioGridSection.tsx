@@ -1,13 +1,20 @@
-import type {SelectedImage} from '../../types/portfolio';
-import {studioGridItems} from '../../data/portfolio';
-import {trpc} from '../../trpc/client';
+import { motion, useInView, useReducedMotion } from 'motion/react';
+import { useRef } from 'react';
+import type { SelectedImage } from '../../types/portfolio';
+import { studioGridItems } from '../../data/portfolio';
+import { trpc } from '../../trpc/client';
+import { EASE_OUT_QUART } from '../../lib/motion-easing';
 
 type StudioGridSectionProps = {
   onSelectImage: (item: SelectedImage) => void;
 };
 
-export function StudioGridSection({onSelectImage}: StudioGridSectionProps) {
-  const {data, isLoading, isError, refetch} = trpc.project.list.useQuery();
+export function StudioGridSection({ onSelectImage }: StudioGridSectionProps) {
+  const reduce = useReducedMotion();
+  const { data, isLoading, isError, refetch } = trpc.project.list.useQuery();
+
+  const gridRef = useRef<HTMLDivElement>(null);
+  const gridInView = useInView(gridRef, { once: true, margin: '0px 0px -10% 0px' });
 
   const entries =
     data && data.length > 0
@@ -20,7 +27,26 @@ export function StudioGridSection({onSelectImage}: StudioGridSectionProps) {
             desc: row.description,
           } satisfies SelectedImage,
         }))
-      : studioGridItems.map((item) => ({key: item.img, item}));
+      : studioGridItems.map((item) => ({ key: item.img, item }));
+
+  const container = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: reduce ? 0 : 0.08,
+        delayChildren: reduce ? 0 : 0.04,
+      },
+    },
+  };
+
+  const itemVariant = {
+    hidden: { opacity: reduce ? 1 : 0, y: reduce ? 0 : 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: reduce ? 0 : 0.5, ease: EASE_OUT_QUART },
+    },
+  };
 
   return (
     <section className="border-t border-black/5">
@@ -46,10 +72,17 @@ export function StudioGridSection({onSelectImage}: StudioGridSectionProps) {
         </div>
       )}
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6">
-        {entries.map(({key, item}) => (
-          <div
+      <motion.div
+        ref={gridRef}
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6"
+        variants={container}
+        initial="hidden"
+        animate={reduce || gridInView ? 'visible' : 'hidden'}
+      >
+        {entries.map(({ key, item }) => (
+          <motion.div
             key={key}
+            variants={itemVariant}
             className="flex flex-col gap-4 group cursor-pointer"
             onClick={() => onSelectImage(item)}
           >
@@ -64,9 +97,9 @@ export function StudioGridSection({onSelectImage}: StudioGridSectionProps) {
               <h4 className="text-sm font-medium uppercase tracking-wider mb-1">{item.title}</h4>
               <p className="text-xs text-black/50">{item.desc || item.cat}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }
