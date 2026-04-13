@@ -16,6 +16,7 @@ async function main() {
     studioGridItems.map((item, i) => ({
       title: item.title,
       imageUrl: item.img,
+      description: item.cat,
       category: item.cat,
       sortOrder: i,
       createdAt: now,

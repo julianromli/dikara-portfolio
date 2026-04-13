@@ -1,4 +1,5 @@
 import { FaFacebook, FaInstagram, FaLinkedin, FaXTwitter } from 'react-icons/fa6';
+import { Link } from 'react-router-dom';
 import { GridLines } from './GridLines';
 
 export function Footer() {
@@ -36,6 +37,9 @@ export function Footer() {
           <div className="flex gap-8 md:gap-12 w-full md:w-auto justify-center md:justify-end">
             <span className="cursor-pointer hover:text-white/70 transition-colors">Services</span>
             <span className="cursor-pointer hover:text-white/70 transition-colors">Photography</span>
+            <Link to="/admin" className="hover:text-white/70 transition-colors">
+              Admin
+            </Link>
           </div>
         </div>
 

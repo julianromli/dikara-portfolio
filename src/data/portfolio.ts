@@ -4,6 +4,7 @@ export const FEATURED_PROJECT_IMAGE: SelectedImage = {
   img: 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=2000&auto=format&fit=crop',
   title: 'Emporio Armani',
   cat: 'Featured Project',
+  desc: 'Featured campaign highlight.',
 };
 
 export const heroPortraits: HeroPortrait[] = [
@@ -50,10 +51,10 @@ export const serviceOfferings: ServiceOffering[] = [
 ];
 
 export const studioGridItems: SelectedImage[] = [
-  { img: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=800&auto=format&fit=crop', title: 'NIKE', cat: 'Product Photography' },
-  { img: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?q=80&w=800&auto=format&fit=crop', title: 'XIAOMI REDMI', cat: 'Commercial Photography' },
-  { img: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800&auto=format&fit=crop', title: 'JUSTIN KALCER', cat: 'Portrait Photography' },
-  { img: 'https://images.unsplash.com/photo-1515023115689-589c33041d3c?q=80&w=800&auto=format&fit=crop', title: 'SARAH WILLIAM', cat: 'Commercial Photography' },
-  { img: 'https://images.unsplash.com/photo-1611558709798-e009c8fd7706?q=80&w=800&auto=format&fit=crop', title: 'NOVA LUX COSMETICS', cat: 'Brand Photography' },
-  { img: 'https://images.unsplash.com/photo-1535295972055-1c762f4483e5?q=80&w=800&auto=format&fit=crop', title: 'ASTROLAB R&D', cat: 'Futuristic Photography' },
+  { img: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=800&auto=format&fit=crop', title: 'NIKE', cat: 'Product Photography', desc: 'Product Photography' },
+  { img: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?q=80&w=800&auto=format&fit=crop', title: 'XIAOMI REDMI', cat: 'Commercial Photography', desc: 'Commercial Photography' },
+  { img: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800&auto=format&fit=crop', title: 'JUSTIN KALCER', cat: 'Portrait Photography', desc: 'Portrait Photography' },
+  { img: 'https://images.unsplash.com/photo-1515023115689-589c33041d3c?q=80&w=800&auto=format&fit=crop', title: 'SARAH WILLIAM', cat: 'Commercial Photography', desc: 'Commercial Photography' },
+  { img: 'https://images.unsplash.com/photo-1611558709798-e009c8fd7706?q=80&w=800&auto=format&fit=crop', title: 'NOVA LUX COSMETICS', cat: 'Brand Photography', desc: 'Brand Photography' },
+  { img: 'https://images.unsplash.com/photo-1535295972055-1c762f4483e5?q=80&w=800&auto=format&fit=crop', title: 'ASTROLAB R&D', cat: 'Futuristic Photography', desc: 'Futuristic Photography' },
 ];

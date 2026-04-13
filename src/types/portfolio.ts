@@ -2,6 +2,8 @@ export type SelectedImage = {
   img: string;
   title: string;
   cat: string;
+  /** Deskripsi / subtitel (dari API: description) */
+  desc: string;
 };
 
 export type StoryPillar = {

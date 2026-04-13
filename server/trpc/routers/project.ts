@@ -6,7 +6,8 @@ import {createTRPCRouter, publicProcedure} from '../init';
 const projectInput = z.object({
   title: z.string().min(1),
   imageUrl: z.string().min(1),
-  category: z.string().min(1),
+  description: z.string().default(''),
+  category: z.string().default(''),
   sortOrder: z.number().int().optional(),
 });
 
@@ -26,6 +27,7 @@ export const projectRouter = createTRPCRouter({
       .values({
         title: input.title,
         imageUrl: input.imageUrl,
+        description: input.description,
         category: input.category,
         sortOrder: input.sortOrder ?? 0,
         createdAt: now,
@@ -50,6 +52,7 @@ export const projectRouter = createTRPCRouter({
         .set({
           ...(data.title !== undefined ? {title: data.title} : {}),
           ...(data.imageUrl !== undefined ? {imageUrl: data.imageUrl} : {}),
+          ...(data.description !== undefined ? {description: data.description} : {}),
           ...(data.category !== undefined ? {category: data.category} : {}),
           ...(data.sortOrder !== undefined ? {sortOrder: data.sortOrder} : {}),
           updatedAt: now,

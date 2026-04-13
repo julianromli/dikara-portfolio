@@ -17,6 +17,7 @@ export function StudioGridSection({onSelectImage}: StudioGridSectionProps) {
             img: row.imageUrl,
             title: row.title,
             cat: row.category,
+            desc: row.description,
           } satisfies SelectedImage,
         }))
       : studioGridItems.map((item) => ({key: item.img, item}));
@@ -61,7 +62,7 @@ export function StudioGridSection({onSelectImage}: StudioGridSectionProps) {
             </div>
             <div>
               <h4 className="text-sm font-medium uppercase tracking-wider mb-1">{item.title}</h4>
-              <p className="text-xs text-black/50">{item.cat}</p>
+              <p className="text-xs text-black/50">{item.desc || item.cat}</p>
             </div>
           </div>
         ))}

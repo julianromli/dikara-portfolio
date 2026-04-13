@@ -39,9 +39,9 @@ export function ImageLightbox({ selectedImage, onClose }: ImageLightboxProps) {
               alt={selectedImage.title}
               className="max-w-full max-h-[75vh] object-contain shadow-2xl"
             />
-            <div className="mt-8 text-center text-white">
+            <div className="mt-8 text-center text-white max-w-2xl">
               <h3 className="text-2xl sm:text-3xl font-medium tracking-wider uppercase mb-3">{selectedImage.title}</h3>
-              <p className="text-sm text-white/60 uppercase tracking-widest">{selectedImage.cat}</p>
+              <p className="text-sm text-white/70 leading-relaxed">{selectedImage.desc || selectedImage.cat}</p>
             </div>
           </motion.div>
         </motion.div>
