@@ -18,7 +18,7 @@ export function HeroSection() {
             Storytelling through cinematic photography for weddings, portraits, and brands.
           </span>
         </div>
-        <div className="hidden sm:block p-6 border-r border-black/5"></div>
+        <div className="max-sm:hidden sm:block p-6 border-r border-black/5"></div>
         <div className="p-6 flex justify-start sm:justify-end items-start">
           <button
             type="button"

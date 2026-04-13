@@ -55,7 +55,7 @@ export function FeaturedWorkSection({ onSelectImage }: FeaturedWorkSectionProps)
           <span className="text-black/50 uppercase tracking-widest text-[10px] font-medium">Date</span>
           <span className="font-medium">August, 10 2025</span>
         </div>
-        <div className="hidden sm:block p-6 border-r border-black/5"></div>
+        <div className="max-sm:hidden sm:block p-6 border-r border-black/5"></div>
         <div className="p-6 flex flex-col gap-2 col-span-2 sm:col-span-1">
           <span className="text-black/50 uppercase tracking-widest text-[10px] font-medium">Photographer</span>
           <span className="font-medium">Justin Wilson</span>

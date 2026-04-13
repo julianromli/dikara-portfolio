@@ -10,11 +10,11 @@ export function Header() {
         </div>
         <span className="text-base sm:text-lg font-semibold lowercase tracking-normal">dikara</span>
       </div>
-      <div className="px-4 sm:px-6 flex justify-between items-center hidden sm:flex h-full">
+      <div className="h-full max-sm:hidden sm:flex sm:items-center sm:justify-between px-4 sm:px-6">
         <NavItem title="Home" />
         <NavItem title="Our Story" items={['Team', 'Philosophy', 'Careers', 'Press']} />
       </div>
-      <div className="px-4 sm:px-6 flex items-center justify-center hidden sm:flex h-full">
+      <div className="h-full max-sm:hidden sm:flex sm:items-center sm:justify-center px-4 sm:px-6">
         <NavItem
           title="Services"
           items={['Portrait Mini', 'Lifestyle Story', 'Brand / Product Day', 'Wedding Packages']}
@@ -22,7 +22,7 @@ export function Header() {
         />
       </div>
       <div className="px-4 sm:px-6 flex justify-end sm:justify-between items-center col-span-3 sm:col-span-1 h-full">
-        <div className="hidden sm:block h-full">
+        <div className="h-full max-sm:hidden sm:block">
           <NavItem
             title="Photography"
             items={['Portfolio', 'Client Galleries', 'Print Shop', 'Exhibitions']}

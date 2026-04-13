@@ -14,7 +14,7 @@ export function OurStorySection() {
         </div>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-4 border-t border-black/5">
-        <div className="hidden sm:block p-6 border-r border-black/5"></div>
+        <div className="max-sm:hidden sm:block p-6 border-r border-black/5"></div>
         <div className="p-6 border-b sm:border-b-0 sm:border-r border-black/5 flex flex-col gap-8">
           <p className="text-sm text-black/70 leading-relaxed">
             Our team of passionate photographers ensures every shot tells your story.
