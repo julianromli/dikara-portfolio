@@ -11,17 +11,17 @@ export const heroPortraits: HeroPortrait[] = [
   {
     img: 'https://images.unsplash.com/photo-1515023115689-589c33041d3c?q=80&w=800&auto=format&fit=crop',
     alt: 'Portrait 1',
-    overlayTitle: 'ordi',
+    hoverImg: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=800&auto=format&fit=crop',
   },
   {
     img: 'https://images.unsplash.com/photo-1515023115689-589c33041d3c?q=80&w=800&auto=format&fit=crop',
     alt: 'Portrait 2',
-    overlayTitle: 'bord',
+    hoverImg: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop',
   },
   {
     img: 'https://images.unsplash.com/photo-1611558709798-e009c8fd7706?q=80&w=800&auto=format&fit=crop',
     alt: 'Portrait 3',
-    overlayTitle: 'nnes',
+    hoverImg: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop',
   },
 ];
 

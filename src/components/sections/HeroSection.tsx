@@ -99,7 +99,7 @@ export function HeroSection() {
       >
         {heroPortraits.map((p) => (
           <motion.div
-            key={p.alt + p.overlayTitle}
+            key={p.alt}
             variants={portraitCell}
             className="aspect-[3/4] relative overflow-hidden group"
           >
@@ -108,9 +108,11 @@ export function HeroSection() {
               className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
               alt={p.alt}
             />
-            <div className="absolute inset-0 flex items-end p-6 bg-gradient-to-t from-ink/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 motion-reduce:transition-none">
-              <h2 className="text-4xl font-bold text-white">{p.overlayTitle}</h2>
-            </div>
+            <img
+              src={p.hoverImg}
+              className="absolute inset-0 object-cover w-full h-full opacity-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+              alt={`${p.alt} hover`}
+            />
           </motion.div>
         ))}
       </motion.div>

@@ -83,19 +83,19 @@ export function StudioGridSection({ onSelectImage }: StudioGridSectionProps) {
           <motion.div
             key={key}
             variants={itemVariant}
-            className="flex flex-col gap-4 group cursor-pointer"
+            className="group cursor-pointer"
             onClick={() => onSelectImage(item)}
           >
-            <div className="aspect-square overflow-hidden bg-gray-100">
+            <div className="aspect-square overflow-hidden bg-gray-100 relative">
               <img
                 src={item.img}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 alt={item.title}
               />
-            </div>
-            <div>
-              <h4 className="text-sm font-medium uppercase tracking-normal mb-1">{item.title}</h4>
-              <p className="text-xs text-muted-2">{item.desc || item.cat}</p>
+              <div className="absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-ink/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <h4 className="text-base font-semibold uppercase tracking-normal mb-1 text-white">{item.title}</h4>
+                <p className="text-xs text-white/80">{item.desc || item.cat}</p>
+              </div>
             </div>
           </motion.div>
         ))}

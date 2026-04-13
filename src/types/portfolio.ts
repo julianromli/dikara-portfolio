@@ -21,5 +21,5 @@ export type ServiceOffering = {
 export type HeroPortrait = {
   img: string;
   alt: string;
-  overlayTitle: string;
+  hoverImg: string;
 };
