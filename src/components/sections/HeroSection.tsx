@@ -3,9 +3,19 @@ import { motion, useReducedMotion } from 'motion/react';
 import { heroPortraits } from '../../data/portfolio';
 import { EASE_OUT_QUART } from '../../lib/motion-easing';
 import { PrimaryCTA } from '../PrimaryCTA';
+import { trpc } from '../../trpc/client';
 
 export function HeroSection() {
   const reduce = useReducedMotion();
+  const { data: dynamicPortraits } = trpc.hero.list.useQuery();
+  
+  const portraitsToRender = dynamicPortraits && dynamicPortraits.length > 0 
+    ? dynamicPortraits.map(p => ({
+        alt: p.alt,
+        img: p.imageUrl,
+        hoverImg: p.hoverImageUrl,
+      }))
+    : heroPortraits;
 
   const introRow = {
     hidden: {},
@@ -97,7 +107,7 @@ export function HeroSection() {
         initial="hidden"
         animate="visible"
       >
-        {heroPortraits.map((p) => (
+        {portraitsToRender.map((p) => (
           <motion.div
             key={p.alt}
             variants={portraitCell}
@@ -105,12 +115,12 @@ export function HeroSection() {
           >
             <img
               src={p.img}
-              className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+              className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
               alt={p.alt}
             />
             <img
               src={p.hoverImg}
-              className="absolute inset-0 object-cover w-full h-full opacity-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+              className="absolute inset-0 object-cover w-full h-full opacity-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
               alt={`${p.alt} hover`}
             />
           </motion.div>

@@ -15,6 +15,13 @@
       "when": 1776072479064,
       "tag": "0001_add_project_description",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1776090453378,
+      "tag": "0002_early_baron_zemo",
+      "breakpoints": true
     }
   ]
 }
